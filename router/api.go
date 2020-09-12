@@ -18,4 +18,6 @@ func (api *API) SetupRouter() {
 
 	user := api.Echo.Group("/user")
 	user.POST("/sign-up", api.UserHandler.HandleSignUp)
+	user.POST("/sign-in", api.UserHandler.HandleSignIn)
+	user.GET("/profile/:id", api.UserHandler.HandleProfile)
 }
