@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/labstack/echo/v4"
 	"gopkg.in/yaml.v2"
 	"os"
+	"strconv"
 	"timewise/db"
 	"timewise/handler"
 	"timewise/model"
-	"github.com/labstack/echo/v4"
 	"timewise/repository"
 	"timewise/router"
 )
@@ -15,6 +16,7 @@ import (
 func main() {
 	var cfg model.Config
 	loadConfig(&cfg)
+	setupEnv(&cfg)
 
 	var sql = new(db.SQL)
 	sql.Connect(cfg)
@@ -33,6 +35,11 @@ func main() {
 	api.SetupRouter()
 
 	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", cfg.Server.Port)))
+}
+
+func setupEnv(cfg *model.Config) {
+	jwtExpires := strconv.Itoa(cfg.Server.JwtExpires)
+	os.Setenv("JwtExpires", jwtExpires)
 }
 
 func loadConfig(cfg *model.Config) {
