@@ -45,7 +45,6 @@ func (u UserRepoImpl) SaveUser(context context.Context, user model.User) (model.
 	return user, nil
 }
 
-
 func (u UserRepoImpl) SelectUserByEmail(context context.Context, email string) (model.User, error) {
 	var user = model.User{}
 

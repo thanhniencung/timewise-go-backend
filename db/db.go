@@ -26,7 +26,7 @@ func (s *SQL) Connect(cfg model.Config) {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Connection db ok")
+	fmt.Println("Connect database successfully")
 }
 
 // Close database connection

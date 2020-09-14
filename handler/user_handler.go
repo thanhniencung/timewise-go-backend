@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
@@ -39,13 +40,13 @@ func (u UserHandler) HandleSignUp(c echo.Context) error {
 	}
 
 	user := model.User{
-		UserID:    userId.String(),
-		FullName:  req.FullName,
-		Email:     req.Email,
-		Avatar:    req.Avatar,
-		Phone:     req.Phone,
-		Password:  hash,
-		Role:      role,
+		UserID:   userId.String(),
+		FullName: req.FullName,
+		Email:    req.Email,
+		Avatar:   req.Avatar,
+		Phone:    req.Phone,
+		Password: hash,
+		Role:     role,
 	}
 
 	user, err = u.UserRepo.SaveUser(c.Request().Context(), user)
@@ -56,6 +57,17 @@ func (u UserHandler) HandleSignUp(c echo.Context) error {
 			Data:       nil,
 		})
 	}
+
+	token, err := security.GenToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.Token = token
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -95,6 +107,17 @@ func (u UserHandler) HandleSignIn(c echo.Context) error {
 		})
 	}
 
+	token, err := security.GenToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.Token = token
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Xử lý thành công",
@@ -103,9 +126,10 @@ func (u UserHandler) HandleSignIn(c echo.Context) error {
 }
 
 func (u UserHandler) HandleProfile(c echo.Context) error {
-	userId := c.Param("id")
+	tokenData := c.Get("user").(*jwt.Token)
+	claims := tokenData.Claims.(*model.JwtCustomClaims)
 
-	user, err := u.UserRepo.SelectUserById(c.Request().Context(), userId)
+	user, err := u.UserRepo.SelectUserById(c.Request().Context(), claims.UserId)
 	if err != nil {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
