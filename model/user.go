@@ -12,6 +12,6 @@ type User struct {
 	Address   *string   `json:"address,omitempty" db:"address, omitempty"`
 	Role      string    `json:"-" db:"role, omitempty"`
 	Token     string    `json:"token,omitempty"`
-	CreatedAt time.Time `json:"-" db:"created_at, omitempty"`
+	CreatedAt time.Time `json:"createdAt" db:"created_at, omitempty"`
 	UpdatedAt time.Time `json:"-" db:"updated_at, omitempty"`
 }
