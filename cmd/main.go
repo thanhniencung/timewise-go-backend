@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"gopkg.in/yaml.v2"
 	"os"
 	"strconv"
@@ -23,6 +24,12 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
+
+	e.Use(middleware.CORS())
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+	}))
 
 	userHandler := handler.UserHandler{
 		UserRepo: repository.NewUserRepo(sql),
