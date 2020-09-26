@@ -18,4 +18,11 @@ func (api *API) SetupRouter() {
 	user.POST("/sign-in", api.UserHandler.HandleSignIn)
 	user.GET("/profile", api.UserHandler.HandleProfile, middleware.JWTMiddleware())
 	user.GET("/list", api.UserHandler.HandleListUsers, middleware.JWTMiddleware())
+
+	//admin
+	admin := api.Echo.Group("/admin")
+	admin.POST("/sign-in", api.UserHandler.HandleAdminSignIn)
+	admin.GET("/token", api.UserHandler.GenToken)
+	admin.GET("/sign-up", api.UserHandler.HandleAdminSignUp,
+		middleware.JWTMiddleware())
 }

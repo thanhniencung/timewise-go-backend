@@ -41,7 +41,9 @@ func main() {
 	}
 	api.SetupRouter()
 
-	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", cfg.Server.Port)))
+	// Tạo một firewall
+	// chỉ cho phép ip của máy tính admin truy cập vào port 8000
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":8000")))
 }
 
 func setupEnv(cfg *model.Config) {
@@ -50,7 +52,7 @@ func setupEnv(cfg *model.Config) {
 }
 
 func loadConfig(cfg *model.Config) {
-	f, err := os.Open("../env.dev.yml")
+	f, err := os.Open("../../env.dev.yml")
 	if err != nil {
 		fmt.Println(err)
 	}
