@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
@@ -78,6 +79,7 @@ func (u UserHandler) HandleSignUp(c echo.Context) error {
 }
 
 func (u UserHandler) HandleSignIn(c echo.Context) error {
+	fmt.Println("sign-in")
 	req := model.SignIn{}
 	if err := c.Bind(&req); err != nil {
 		log.Error(err.Error())

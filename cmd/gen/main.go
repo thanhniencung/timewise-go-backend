@@ -39,9 +39,9 @@ func main() {
 		Echo:        e,
 		UserHandler: userHandler,
 	}
-	api.SetupRouter()
+	api.SetupAdminRouter()
 
-	// Tạo một firewall
+	// Tạo một Firewall
 	// chỉ cho phép ip của máy tính admin truy cập vào port 8000
 	e.Logger.Fatal(e.Start(fmt.Sprintf(":8000")))
 }
