@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bee3c1dd-7965-4dca-94e4-527933bfb52c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/banana/app_error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handler/cate_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/2_product_module_cate.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/cate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/cate_repo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/cate_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gen/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gen/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/app/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/jwt.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/api.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,17 +43,18 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/migrations" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/migrations" />
+      <recent name="$PROJECT_DIR$/cmd/pro" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/cmd/app" />
       <recent name="$PROJECT_DIR$/cmd" />
       <recent name="$PROJECT_DIR$/cmd/dev" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cmd/pro" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -58,6 +65,10 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="513" y="345" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602052482307">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="513" y="345" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.1027@0.23.1680.1027" timestamp="1602052482307" />
     <state x="616" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1601112234970">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

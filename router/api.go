@@ -9,6 +9,7 @@ import (
 type API struct {
 	Echo        *echo.Echo
 	UserHandler handler.UserHandler
+	CateHandler handler.CateHandler
 }
 
 func (api *API) SetupRouter() {
@@ -18,6 +19,13 @@ func (api *API) SetupRouter() {
 	user.POST("/sign-in", api.UserHandler.HandleSignIn)
 	user.GET("/profile", api.UserHandler.HandleProfile, middleware.JWTMiddleware())
 	user.GET("/list", api.UserHandler.HandleListUsers, middleware.JWTMiddleware())
+
+	// categories
+	categories := api.Echo.Group("/cate", middleware.JWTMiddleware(), middleware.CheckAdminRole())
+	categories.POST("/add", api.CateHandler.HandleAddCate)
+	categories.PUT("/edit", api.CateHandler.HandleEditCate)
+	categories.GET("/detail/:id", api.CateHandler.HandleCateDetail)
+	categories.GET("/list", api.CateHandler.HandleCateList)
 }
 
 func (api *API) SetupAdminRouter() {
