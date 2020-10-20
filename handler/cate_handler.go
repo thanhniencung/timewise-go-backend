@@ -87,8 +87,8 @@ func (c CateHandler) HandleCateDetail(context echo.Context) error {
 			})
 		}
 
-		return context.JSON(http.StatusConflict, model.Response{
-			StatusCode: http.StatusConflict,
+		return context.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
 			Message:    err.Error(),
 			Data:       nil,
 		})

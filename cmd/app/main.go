@@ -39,10 +39,15 @@ func main() {
 		CateRepo: repository.NewCateRepo(sql),
 	}
 
+	productHandler := handler.ProductHandler{
+		ProductRepo: repository.NewProductRepo(sql),
+	}
+
 	api := router.API{
 		Echo:        e,
 		UserHandler: userHandler,
 		CateHandler: cateHandler,
+		ProductHandler: productHandler,
 	}
 	api.SetupRouter()
 

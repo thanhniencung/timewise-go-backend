@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bee3c1dd-7965-4dca-94e4-527933bfb52c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/banana/app_error.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handler/cate_handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/2_product_module_cate.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/cate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repository/cate_repo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repository/cate_repo_impl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handler/product_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/3_product_module_product.collection.attrs.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/attribute.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/collection.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/product_repo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/product_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banana/app_error.go" beforeDir="false" afterPath="$PROJECT_DIR$/banana/app_error.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/app/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/cate_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/cate_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/cate.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/cate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/cate_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/cate_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/api.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,15 +53,42 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/migrations" />
-      <recent name="$PROJECT_DIR$/cmd/pro" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/cmd/app" />
       <recent name="$PROJECT_DIR$/cmd" />
       <recent name="$PROJECT_DIR$/cmd/dev" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/migrations" />
+      <recent name="$PROJECT_DIR$/cmd/pro" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="go-backend" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="timewise" />
+      <directory value="$PROJECT_DIR$/cmd/app" />
+      <method v="2" />
+    </configuration>
+    <configuration name="timewise" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="go-backend" />
+      <working_directory value="$PROJECT_DIR$/cmd/app" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/app/main.go" />
+      <package value="timewise/cmd/app" />
+      <directory value="$PROJECT_DIR$/cmd/app" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.timewise" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -65,6 +98,10 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="268" y="155" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602563332535">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="268" y="155" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1602563332535" />
     <state x="513" y="345" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602052482307">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -73,10 +110,46 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="616" y="250" key="#com.intellij.ide.util.MemberChooser/0.23.1680.1027@0.23.1680.1027" timestamp="1601112234970" />
+    <state width="490" height="466" key="DebuggerActiveHint" timestamp="1602562874229">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="490" height="466" key="DebuggerActiveHint/0.23.1680.1027@0.23.1680.1027" timestamp="1602562874229" />
     <state x="739" y="405" key="EnvironmentVariablesDialog" timestamp="1599985118861">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="739" y="405" key="EnvironmentVariablesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1599985118861" />
+    <state width="1638" height="346" key="GridCell.Tab.0.bottom" timestamp="1602563351661">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1602563351661" />
+    <state width="1638" height="346" key="GridCell.Tab.0.center" timestamp="1602563351659">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1602563351659" />
+    <state width="1638" height="346" key="GridCell.Tab.0.left" timestamp="1602563351658">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1602563351658" />
+    <state width="1638" height="346" key="GridCell.Tab.0.right" timestamp="1602563351661">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1602563351661" />
+    <state width="1638" height="346" key="GridCell.Tab.1.bottom" timestamp="1602563352864">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1602563352864" />
+    <state width="1638" height="346" key="GridCell.Tab.1.center" timestamp="1602563352863">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1602563352863" />
+    <state width="1638" height="346" key="GridCell.Tab.1.left" timestamp="1602563352863">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1602563352863" />
+    <state width="1638" height="346" key="GridCell.Tab.1.right" timestamp="1602563352864">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="346" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1602563352864" />
     <state x="341" y="175" key="SettingsEditor" timestamp="1599612474962">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -85,5 +158,12 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1599744042231" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="sql" language="go" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

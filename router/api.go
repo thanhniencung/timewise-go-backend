@@ -7,9 +7,10 @@ import (
 )
 
 type API struct {
-	Echo        *echo.Echo
-	UserHandler handler.UserHandler
-	CateHandler handler.CateHandler
+	Echo           *echo.Echo
+	UserHandler    handler.UserHandler
+	CateHandler    handler.CateHandler
+	ProductHandler handler.ProductHandler
 }
 
 func (api *API) SetupRouter() {
@@ -21,11 +22,25 @@ func (api *API) SetupRouter() {
 	user.GET("/list", api.UserHandler.HandleListUsers, middleware.JWTMiddleware())
 
 	// categories
-	categories := api.Echo.Group("/cate", middleware.JWTMiddleware(), middleware.CheckAdminRole())
+	categories := api.Echo.Group("/cate",
+		middleware.JWTMiddleware(),
+		middleware.CheckAdminRole())
+
 	categories.POST("/add", api.CateHandler.HandleAddCate)
 	categories.PUT("/edit", api.CateHandler.HandleEditCate)
 	categories.GET("/detail/:id", api.CateHandler.HandleCateDetail)
 	categories.GET("/list", api.CateHandler.HandleCateList)
+
+	// product
+	product := api.Echo.Group("/product",
+		middleware.JWTMiddleware(),
+		middleware.CheckAdminRole())
+
+	product.POST("/add", api.ProductHandler.HandleAddProduct)
+	product.GET("/detail/:id", api.ProductHandler.HandleProductDetail)
+
+	product.PUT("/edit", api.ProductHandler.HandleEditProduct)
+	product.GET("/list", api.ProductHandler.HandleProductList)
 }
 
 func (api *API) SetupAdminRouter() {
