@@ -44,9 +44,9 @@ func main() {
 	}
 
 	api := router.API{
-		Echo:        e,
-		UserHandler: userHandler,
-		CateHandler: cateHandler,
+		Echo:           e,
+		UserHandler:    userHandler,
+		CateHandler:    cateHandler,
 		ProductHandler: productHandler,
 	}
 	api.SetupRouter()
