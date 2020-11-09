@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bee3c1dd-7965-4dca-94e4-527933bfb52c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/handler/product_handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/3_product_module_product.collection.attrs.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/attribute.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/collection.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repository/product_repo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repository/product_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banana/app_error.go" beforeDir="false" afterPath="$PROJECT_DIR$/banana/app_error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/app/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/cate_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/cate_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/cate.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/cate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/cate_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/cate_repo_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/product_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/product_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/3_product_module_product.collection.attrs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/3_product_module_product.collection.attrs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/attribute.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/attribute.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/product_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/product_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/api.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +41,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/migrations" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">

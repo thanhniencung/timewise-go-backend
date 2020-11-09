@@ -39,8 +39,8 @@ func (api *API) SetupRouter() {
 	product.POST("/add", api.ProductHandler.HandleAddProduct)
 	product.GET("/detail/:id", api.ProductHandler.HandleProductDetail)
 
-	product.PUT("/edit", api.ProductHandler.HandleEditProduct)
 	product.GET("/list", api.ProductHandler.HandleProductList)
+	product.PUT("/edit", api.ProductHandler.HandleEditProduct)
 }
 
 func (api *API) SetupAdminRouter() {

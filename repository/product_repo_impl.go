@@ -55,9 +55,9 @@ func (p ProductRepoImpl) AddProductAttribute(context context.Context,
 
 	statement := `
 		INSERT INTO attributes(
-				attr_id, product_id, collection_id, attr_name, size, 
+				attr_id, p_id, col_id, attr_name, size, 
 				price, promotion, quantity, created_at, updated_at)
-		VALUES(:attr_id, :product_id, :collection_id, :attr_name, 
+		VALUES(:attr_id, :p_id, :col_id, :attr_name, 
 				:size, :price, :promotion, :quantity, :created_at, :updated_at)
 	`
 
@@ -74,14 +74,13 @@ func (p ProductRepoImpl) AddProductAttribute(context context.Context,
 
 		_, err := tx.NamedExecContext(context, statement, attr)
 		if err != nil {
+			tx.Rollback()
 			log.Error(err.Error())
 			if err, ok := err.(*pq.Error); ok {
 				if err.Code.Name() == "unique_violation" {
-					tx.Commit()
 					return errors.New("Có thuộc tính này đã tồn tại")
 				}
 			}
-			tx.Commit()
 			return errors.New("Thêm thuộc tính thất bại")
 		}
 	}
@@ -121,11 +120,28 @@ func (p ProductRepoImpl) SelectProductById(context context.Context, productId st
 	return product, nil
 }
 
-
 func (p ProductRepoImpl) UpdateProduct(context context.Context, product model.Product) error {
 	return nil
 }
 
 func (p ProductRepoImpl) SelectProducts(context context.Context) ([]model.Product, error) {
-	return []model.Product{}, nil
+	var products []model.Product
+	sql := `SELECT
+	      products.*,
+	      attributes.attr_id,
+	      attributes.col_id,
+	      attributes.attr_name,
+	      attributes.size,
+	      attributes.price,
+	      attributes.promotion,
+	      attributes.quantity
+	    FROM
+	      products JOIN attributes 
+	      ON products.product_id = attributes.p_id;`
+	err := p.sql.Db.Select(&products, sql)
+	return products, err
 }
+
+
+
+
