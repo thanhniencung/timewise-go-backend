@@ -4,11 +4,7 @@
     <list default="true" id="bee3c1dd-7965-4dca-94e4-527933bfb52c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/product_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/product_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/3_product_module_product.collection.attrs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/3_product_module_product.collection.attrs.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/attribute.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/attribute.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/product_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/product_repo_impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/api.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

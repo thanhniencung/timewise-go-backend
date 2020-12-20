@@ -96,7 +96,30 @@ func (p ProductHandler) HandleProductDetail(context echo.Context) error {
 }
 
 func (p ProductHandler) HandleEditProduct(context echo.Context) error {
-	return nil
+	productReq := model.Product{}
+	if err := context.Bind(&productReq); err != nil {
+		log.Error(err.Error())
+		return context.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	err := p.ProductRepo.UpdateProduct(context.Request().Context(), productReq)
+	if err != nil {
+		return context.JSON(http.StatusOK, model.Response{
+			StatusCode: http.StatusOK,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	return context.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Cập nhật sản phẩm thành công",
+		Data:       nil,
+	})
 }
 
 func (p ProductHandler) HandleProductList(context echo.Context) error {

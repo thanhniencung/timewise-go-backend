@@ -121,6 +121,66 @@ func (p ProductRepoImpl) SelectProductById(context context.Context, productId st
 }
 
 func (p ProductRepoImpl) UpdateProduct(context context.Context, product model.Product) error {
+	statementUpdateAttributes := `
+		UPDATE attributes 
+		SET 
+			p_id = :p_id,
+			col_id = :col_id,
+			attr_name = :attr_name,
+			size = :size,
+			price = :price,
+			promotion = :promotion,
+			quantity = :quantity,
+			created_at = :created_at,
+			updated_at = :updated_at
+		WHERE attr_id = :attr_id
+	`
+
+	statementUpdateProduct := `
+		UPDATE products 
+		SET 
+			product_name = :product_name,
+			product_image = :product_image,
+			product_des = :product_des,
+			cate_id = :cate_id,
+			collection_id = :collection_id,
+			created_at = :created_at,
+			updated_at = :updated_at
+		WHERE product_id = :product_id
+	`
+
+	shouldRollback := false
+	tx := p.sql.Db.MustBegin()
+	_, errPro := tx.NamedExecContext(context, statementUpdateProduct, product)
+	if errPro != nil {
+		log.Error(errPro.Error())
+		tx.Rollback()
+		return errors.New("Cập nhật phẩm thất bại")
+	}
+
+	for _, attr := range product.Attributes {
+		attr.ProductId = product.ProductId
+		attr.CollectionId = product.CollectionId
+
+		now := time.Now()
+		attr.CreatedAt = now
+		attr.UpdatedAt = now
+
+		_, err := tx.NamedExecContext(context, statementUpdateAttributes, attr)
+		if err != nil {
+			shouldRollback = true
+			log.Error(err.Error())
+			break
+		}
+	}
+
+	if shouldRollback {
+		tx.Rollback()
+		return errors.New("Cập nhật phẩm thất bại")
+	}
+
+	tx.Commit()
+
 	return nil
 }
 
