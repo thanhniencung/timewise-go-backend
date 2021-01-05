@@ -53,7 +53,8 @@ func (c CateRepoImpl) DeleteCate(context context.Context, cateId string) error {
 func (c CateRepoImpl) UpdateCate(context context.Context, cate model.Cate) error {
 	statement := `UPDATE categories
 				  SET cate_name = :cate_name, 
-					  cate_image = :cate_image 
+					  cate_image = :cate_image,
+					  updated_at = :updated_at
 				  WHERE cate_id=:cate_id;`
 
 	cate.UpdatedAt = time.Now()

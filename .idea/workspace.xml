@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bee3c1dd-7965-4dca-94e4-527933bfb52c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/product_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/product_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/cate_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/cate_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/product_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/product_repo_impl.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,10 +108,10 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="490" height="466" key="DebuggerActiveHint/0.23.1680.1027@0.23.1680.1027" timestamp="1602562874229" />
-    <state x="739" y="405" key="EnvironmentVariablesDialog" timestamp="1599985118861">
+    <state x="100" y="123" width="1480" height="827" key="DiffContextDialog" timestamp="1609680395162">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="739" y="405" key="EnvironmentVariablesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1599985118861" />
+    <state x="100" y="123" width="1480" height="827" key="DiffContextDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1609680395162" />
     <state width="1638" height="346" key="GridCell.Tab.0.bottom" timestamp="1602563351661">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -143,14 +144,6 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1638" height="346" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1602563352864" />
-    <state x="341" y="175" key="SettingsEditor" timestamp="1599612474962">
-      <screen x="0" y="23" width="1680" height="1027" />
-    </state>
-    <state x="341" y="175" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1599612474962" />
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1599744042231">
-      <screen x="0" y="23" width="1680" height="1027" />
-    </state>
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1599744042231" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

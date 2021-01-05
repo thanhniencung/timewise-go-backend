@@ -150,6 +150,7 @@ func (p ProductRepoImpl) UpdateProduct(context context.Context, product model.Pr
 	`
 
 	shouldRollback := false
+
 	tx := p.sql.Db.MustBegin()
 	_, errPro := tx.NamedExecContext(context, statementUpdateProduct, product)
 	if errPro != nil {
@@ -194,10 +195,11 @@ func (p ProductRepoImpl) SelectProducts(context context.Context) ([]model.Produc
 	      attributes.size,
 	      attributes.price,
 	      attributes.promotion,
-	      attributes.quantity
-	    FROM
-	      products JOIN attributes 
-	      ON products.product_id = attributes.p_id;`
+	      attributes.quantity,
+	      categories.cate_name
+	    FROM products 
+	      INNER JOIN attributes ON products.product_id = attributes.p_id
+	      INNER JOIN categories ON products.cate_id = categories.cate_id;`
 	err := p.sql.Db.Select(&products, sql)
 	return products, err
 }
