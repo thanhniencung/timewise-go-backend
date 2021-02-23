@@ -37,10 +37,10 @@ func (api *API) SetupRouter() {
 		middleware.CheckAdminRole())
 
 	product.POST("/add", api.ProductHandler.HandleAddProduct)
-	product.GET("/detail/:id", api.ProductHandler.HandleProductDetail)
-
-	product.GET("/list", api.ProductHandler.HandleProductList)
+	product.DELETE("/attr/:id", api.ProductHandler.HandleDeleteAttrById)
 	product.PUT("/edit", api.ProductHandler.HandleEditProduct)
+	product.GET("/list", api.ProductHandler.HandleProductList)
+	product.GET("/detail/:id", api.ProductHandler.HandleProductDetail)
 }
 
 func (api *API) SetupAdminRouter() {

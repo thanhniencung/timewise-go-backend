@@ -159,7 +159,13 @@ func (p ProductRepoImpl) UpdateProduct(context context.Context, product model.Pr
 		return errors.New("Cập nhật phẩm thất bại")
 	}
 
+	newAttrs := make([]model.Attribute, 0)
 	for _, attr := range product.Attributes {
+		if len(attr.AttrId) == 0 {
+			newAttrs = append(newAttrs, attr)
+			continue
+		}
+
 		attr.ProductId = product.ProductId
 		attr.CollectionId = product.CollectionId
 
@@ -173,6 +179,12 @@ func (p ProductRepoImpl) UpdateProduct(context context.Context, product model.Pr
 			log.Error(err.Error())
 			break
 		}
+	}
+
+	err := p.AddProductAttribute(context,  product.ProductId, product.CollectionId, newAttrs)
+	if err != nil {
+		shouldRollback = true
+		log.Error(err.Error())
 	}
 
 	if shouldRollback {
@@ -199,9 +211,21 @@ func (p ProductRepoImpl) SelectProducts(context context.Context) ([]model.Produc
 	      categories.cate_name
 	    FROM products 
 	      INNER JOIN attributes ON products.product_id = attributes.p_id
-	      INNER JOIN categories ON products.cate_id = categories.cate_id;`
+	      INNER JOIN categories ON products.cate_id = categories.cate_id
+	      ORDER BY products.created_at ASC;
+`
 	err := p.sql.Db.Select(&products, sql)
 	return products, err
+}
+
+func (p ProductRepoImpl) DeleteProductAttr(context context.Context, attrId string) error {
+	statementDeleteAttr := `DELETE FROM attributes WHERE attr_id=$1;`
+	_, err := p.sql.Db.ExecContext(context, statementDeleteAttr, attrId)
+	if err != nil {
+		log.Error(err.Error())
+		return err
+	}
+	return nil
 }
 
 

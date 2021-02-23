@@ -122,6 +122,33 @@ func (p ProductHandler) HandleEditProduct(context echo.Context) error {
 	})
 }
 
+func (p ProductHandler) HandleDeleteAttrById(context echo.Context) error {
+	attrId := context.Param("id")
+
+	if len(attrId) == 0 {
+		return context.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
+			Message:    "Thiếu thuộc tính id",
+			Data:       nil,
+		})
+	}
+
+	err := p.ProductRepo.DeleteProductAttr(context.Request().Context(), attrId)
+	if err != nil {
+		return context.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	return context.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Xóa thuộc tính thành công",
+		Data:       nil,
+	})
+}
+
 func (p ProductHandler) HandleProductList(context echo.Context) error {
 	mp := make(map[string]model.Product)
 	products, _ := p.ProductRepo.SelectProducts(context.Request().Context())
